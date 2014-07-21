@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+	<link href="styles/main.css" rel="stylesheet" />
+
+	<script src="cordova.js"></script>
+	<script src="kendo/js/jquery.min.js"></script>
+	<script src="kendo/js/kendo.mobile.min.js"></script>
+
+	<script src="scripts/app.js"></script>
+</head>
+<body>
+	<div data-role="view" id="list" data-layout="main-layout" data-title="Files">
+		<ul id="files"></ul>
+		<script type="text/html" id="file-template">
+			<a href="\#details?id=#: id #" data-transition="slide">#: name #</a>
+		</script>
+	</div>
+	
+	<div data-role="view" id="details" data-show="app.showDetails" data-layout="main-layout" data-title="Details">
+		<div id="file-details"></div>
+		<script type="text/html" id="file-details-template">
+			<ul>
+				<li>Name: #: name #</li>
+				<li>Description: #: description #</li>
+			</ul>
+			<img src="#: src #">
+		</script>
+	</div>
+	
+	<div data-role="layout" data-id="main-layout">
+		<div data-role="header">
+			<div data-role="navbar">
+				<a href="#list" data-role="button" data-align="left">Back</a>
+				<span data-role="view-title"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
