@@ -7,8 +7,8 @@
 		});
 		window.app = {
 			showDetails: function(event) {
-				var templateHtml = $("#file-details-template").html(),
-					template = kendo.template(templateHtml);
+				var templateHtml = $("#file-details-template").html();
+				var template = kendo.template(templateHtml);
 				$("#file-details").html(template(event.view.params.img));
 			}
 		}

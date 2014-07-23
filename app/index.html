@@ -13,6 +13,15 @@
 	<script src="scripts/app.js"></script>
 </head>
 <body>
+	<div data-role="layout" data-id="main-layout">
+		<div data-role="header">
+			<div data-role="navbar">
+				<a href="#list" data-role="button" data-align="left">Back</a>
+				<span data-role="view-title"></span>
+			</div>
+		</div>
+	</div>
+
 	<div data-role="view" id="list" data-layout="main-layout" data-title="Files">
 		<ul id="files"></ul>
 		<script type="text/html" id="file-template">
@@ -21,21 +30,12 @@
 			</a>
 		</script>
 	</div>
-	
+
 	<div data-role="view" id="details" data-layout="main-layout" data-title="Details" data-show="app.showDetails">
 		<div id="file-details"></div>
 		<script type="text/html" id="file-details-template">
 			<img src="#: data #">
 		</script>
-	</div>
-	
-	<div data-role="layout" data-id="main-layout">
-		<div data-role="header">
-			<div data-role="navbar">
-				<a href="#list" data-role="button" data-align="left">Back</a>
-				<span data-role="view-title"></span>
-			</div>
-		</div>
 	</div>
 </body>
 </html>
