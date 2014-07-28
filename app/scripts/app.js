@@ -1,13 +1,13 @@
 (function() {
 	document.addEventListener("deviceready", function () {
 		new kendo.mobile.Application(document.body);
-		$("#files").kendoMobileListView({
+		$("#images").kendoMobileListView({
 			dataSource: [
 				"images/dog1.gif",
 				"images/dog2.gif",
 				"images/dog3.gif"
 			],
-			template: $("#file-template").html()
+			template: "<img src='#: data #''>"
 		});
 	});
 }());

@@ -13,20 +13,11 @@
 	<script src="scripts/app.js"></script>
 </head>
 <body>
-	<div data-role="layout" data-id="main-layout">
-		<div data-role="header">
-			<div data-role="navbar">
-				<span data-role="view-title"></span>
-			</div>
+	<div data-role="view" data-title="Images">
+		<div data-role="navbar">
+			<span data-role="view-title"></span>
 		</div>
-	</div>
-
-	<div data-role="view" id="list" data-layout="main-layout" data-title="Files">
-		<ul id="files"></ul>
-		<script type="text/html" id="file-template">
-			<img src="#: data #">
-			#: data #
-		</script>
+		<ul id="images"></ul>
 	</div>
 </body>
 </html>
