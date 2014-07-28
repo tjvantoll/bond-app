@@ -1,6 +1,6 @@
 (function() {
 	document.addEventListener("deviceready", function () {
-		new kendo.mobile.Application(document.body);
+		new kendo.mobile.Application(document.body, { skin: "flat" });
 		$("#images").kendoMobileListView({
 			dataSource: [
 				"images/dog1.gif",
