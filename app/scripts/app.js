@@ -3,9 +3,17 @@
 
 		window.listView = kendo.observable({
 			addImage: function() {
-				$( "#images" )
-					.data( "kendoMobileListView" )
-					.prepend([ "http://google.com/favicon.ico" ]);
+				navigator.camera.getPicture(function( data ) {
+					$( "#images" )
+						.data( "kendoMobileListView" )
+						.prepend([ "data:image/jpeg;base64," + data ]);
+				}, function() {
+					navigator.notification.alert(
+						"Unfortunately we could not add the image"
+					);
+				}, {
+					destinationType: Camera.DestinationType.DATA_URL
+				});
 			}
 		});
 
