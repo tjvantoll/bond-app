@@ -1,12 +1,18 @@
 (function() {
-	document.addEventListener("deviceready", function () {
+	var apiKey = "nMfdN0aMrPrHIqgv";
+	var el = new Everlive(apiKey);
+	everliveImages.init(apiKey);
 
+	document.addEventListener("deviceready", function () {
 		window.listView = kendo.observable({
 			addImage: function() {
 				navigator.camera.getPicture(function(data) {
-					$("#images")
-						.data("kendoMobileListView")
-						.prepend([ "data:image/jpeg;base64," + data ]);
+					el.Files.create({
+						Filename: Math.random().toString(36).substring(2, 15)
+							+ ".jpg",
+						ContentType: "image/jpeg",
+						base64: data
+					}).then(loadImages);
 				}, function() {
 					navigator.notification.alert(
 						"Unfortunately we could not add the image"
@@ -19,15 +25,21 @@
 			}
 		});
 
-		var app = new kendo.mobile.Application(document.body, { skin: "flat" });
+		function loadImages() {
+			el.Files.get().then(function(data) {
+				var files = [];
+				data.result.forEach(function(image) {
+					files.push(image.Uri);
+				});
+				$("#images").kendoMobileListView({
+					dataSource: files,
+					template: "<img data-src='#: data #' class='resimgs'>"
+				});
+				everliveImages.responsiveAll();
+			});
+		}
 
-		$("#images").kendoMobileListView({
-			dataSource: [
-				"images/dog1.gif",
-				"images/dog2.gif",
-				"images/dog3.gif"
-			],
-			template: "<img src='#: data #''>"
-		});
+		var app = new kendo.mobile.Application(document.body, { skin: "flat" });
+		loadImages();
 	});
 }());
