@@ -12,7 +12,9 @@
 						"Unfortunately we could not add the image"
 					);
 				}, {
-					destinationType: Camera.DestinationType.DATA_URL
+					destinationType: Camera.DestinationType.DATA_URL,
+					targetWidth: 300,
+					targetHeight: 400
 				});
 			}
 		});
