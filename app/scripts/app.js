@@ -3,9 +3,9 @@
 
 		window.listView = kendo.observable({
 			addImage: function() {
-				navigator.camera.getPicture(function( data ) {
-					$( "#images" )
-						.data( "kendoMobileListView" )
+				navigator.camera.getPicture(function(data) {
+					$("#images")
+						.data("kendoMobileListView")
 						.prepend([ "data:image/jpeg;base64," + data ]);
 				}, function() {
 					navigator.notification.alert(
